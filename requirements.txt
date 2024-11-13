@@ -1,4 +1,4 @@
 streamlit
 yfinance
 pandas
-openpyxl  # Required for Excel file handling
+openpyxl
