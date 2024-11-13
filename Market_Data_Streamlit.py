@@ -51,8 +51,8 @@ if uploaded_file:
                 if len(last_three_days) >= 3:
                     t_2_value = float(last_three_days.iloc[-3].item())  # T-2
                     t_2_pct_change = ((t_1_value - t_2_value) / t_2_value) * 100 if t_2_value != 0 else None
-                    cumulative_pct = t_2_pct_change + t_1_pct_change if t_1_pct_change is not None and t_2_pct_change is not None else None
-
+                    cumulative_pct_1 = t_2_pct_change + t_1_pct_change if t_1_pct_change is not None and t_2_pct_change is not None else None
+                    cumulative_pct_2 = ((t_value - t_2_value) / t_2_value) * 100 if t_2_value != 0 else None
                 closing_prices_summary.append({
                     "Symbol": symbol,
                     "Close_T": t_value,
@@ -60,7 +60,8 @@ if uploaded_file:
                     "T-1 % Change": t_1_pct_change,
                     "Close_T-2": t_2_value,
                     "T-2 % Change": t_2_pct_change,
-                    "Cumulative % Change": cumulative_pct
+                    "Cumulative % Change_1": cumulative_pct_1
+                    "Cumulative % Change_2": cumulative_pct_2
                 })
             else:
                 st.warning(f"No data found for {symbol}.")
