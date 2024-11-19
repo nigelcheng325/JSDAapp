@@ -4,9 +4,8 @@ yfinance
 nest-asyncio
 playwright
 subprocess
-asyncio
 datetime
-timedelta
-ioos
+io
+os
 requests
 BeautifulSoup
