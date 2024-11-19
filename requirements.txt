@@ -1,8 +1,5 @@
 streamlit
-yfinance
 pandas
-openpyxl
+yfinance
 nest-asyncio
 playwright
-requests
-beautifulsoup4
