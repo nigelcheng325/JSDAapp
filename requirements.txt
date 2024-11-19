@@ -2,4 +2,4 @@ streamlit
 pandas
 yfinance
 nest-asyncio
-playwright
+pyppeteer
