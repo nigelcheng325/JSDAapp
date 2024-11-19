@@ -3,9 +3,3 @@ pandas
 yfinance
 nest-asyncio
 playwright
-subprocess
-datetime
-io
-os
-requests
-BeautifulSoup
