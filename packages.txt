@@ -1,0 +1,14 @@
+libnss3
+libatk-bridge2.0-0
+libxcomposite1
+libxdamage1
+libxrandr2
+libasound2
+libpangocairo-1.0-0
+libcups2
+libxshmfence1
+libgbm1
+libpangoft2-1.0-0
+libharfbuzz-icu0
+libgstreamer1.0-0
+libgstreamer-plugins-base1.0-0
