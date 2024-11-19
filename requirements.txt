@@ -2,3 +2,7 @@ streamlit
 yfinance
 pandas
 openpyxl
+nest-asyncio
+playwright
+requests
+beautifulsoup4
