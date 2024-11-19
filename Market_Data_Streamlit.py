@@ -231,18 +231,25 @@ def process_data(uploaded_file):
         st.write(f"{i}/{len(symbols)}: Processing: {symbol}")
         stock_data = yf.download(symbol, start=start_date, end=end_date)
 
-        if not stock_data.empty:
-            last_three_days = stock_data['Close'].dropna().iloc[-3:]
-            t_value = last_three_days[-1] if len(last_three_days) >= 1 else None
-            t_1_value = last_three_days[-2] if len(last_three_days) >= 2 else None
-            t_2_value = last_three_days[-3] if len(last_three_days) >= 3 else None
+        if stock_data.empty or 'Close' not in stock_data.columns:
+            st.warning(f"No valid 'Close' data for {symbol}. Skipping...")
+            continue
 
-            closing_prices_summary.append({
-                "Symbol": symbol,
-                "Close_T": t_value,
-                "Close_T-1": t_1_value,
-                "Close_T-2": t_2_value,
-            })
+        last_three_days = stock_data['Close'].dropna().iloc[-3:]
+        if last_three_days.empty:
+            st.warning(f"Not enough data for {symbol}. Skipping...")
+            continue
+
+        t_value = last_three_days.iloc[-1] if len(last_three_days) >= 1 else None
+        t_1_value = last_three_days.iloc[-2] if len(last_three_days) >= 2 else None
+        t_2_value = last_three_days.iloc[-3] if len(last_three_days) >= 3 else None
+
+        closing_prices_summary.append({
+            "Symbol": symbol,
+            "Close_T": t_value,
+            "Close_T-1": t_1_value,
+            "Close_T-2": t_2_value,
+        })
 
     return pd.DataFrame(closing_prices_summary)
 
