@@ -5,9 +5,6 @@ nest-asyncio
 playwright
 subprocess
 asyncio
-nest_asyncio
-playwright.async_api
-async_playwright
 datetime
 timedelta
 ioos
