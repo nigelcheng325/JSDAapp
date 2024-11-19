@@ -31,8 +31,8 @@ if uploaded_file:
         closing_prices_summary = []
 
         # Fetch data for each stock symbol
-        for symbol in symbols:
-            st.write(f"Processing: {symbol}")
+        for i, symbol in enumerate(symbols, start=1):
+            st.write(f"{i}/{len(symbols)}: Processing: {symbol}")
             stock_data = yf.download(symbol, start=start_date, end=end_date)
 
             if not stock_data.empty:
@@ -72,6 +72,8 @@ if uploaded_file:
 
         # Display the summary in the app
         st.subheader("Summary of Closing Prices and % Changes")
+        st.write("cumulative_pct_1 = Sum of t_1_pct_change and t_2_pct_change")
+        st.write("cumulative_pct_2 = Change of t_2_value and t_value")
         st.dataframe(summary_df)
 
         # Option to download the results as an Excel file
